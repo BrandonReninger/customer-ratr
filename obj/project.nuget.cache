@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1LvXnIcWYuRPLbYH/VvZ3WUktTGecsxx1zcejHyHOuba34rhGsXNEh2T5Cue+JRIYfgxEk+Che8n/xT8n+NMhg==",
+  "dgSpecHash": "so/y0ju1L57turc7lEWzfx8xQq+8OOkjPkKJob1CdKG2OoYDdxcfOvGnA8Opz0qOT+pC6jAlKVD2g3FiNJaYYQ==",
   "success": true,
   "projectFilePath": "C:\\source\\MyProjects\\customer-ratr\\customer-ratr.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\brand\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\mysqlconnector\\0.69.5\\mysqlconnector.0.69.5.nupkg.sha512",
+    "C:\\Users\\brand\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }
