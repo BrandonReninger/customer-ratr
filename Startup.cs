@@ -26,6 +26,29 @@ namespace customer_ratr
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            {
+                services.AddCors(options =>
+                {
+                    options.AddPolicy("CorsDevPolicy", builder =>
+                    {
+                        builder
+                        .WithOrigins(new string[]{
+                            "http://localhost:8080", "http://localhost:8081"
+                        })
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+                });
+
+                services.AddControllers();
+                services.AddScoped<IDbConnection>(x => CreateDbConnection());
+            }
+            private IDbConnection CreateDbConnection()
+            {
+                string connectionString = Configuration["db:gearhost"];
+                return new MysqlConnection(connectionString);
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
