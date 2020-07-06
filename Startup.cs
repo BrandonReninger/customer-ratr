@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using customer_ratr.Controllers;
+using customer_ratr.Services;
+using customer_ratr.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 
 namespace customer_ratr
 {
@@ -25,30 +30,30 @@ namespace customer_ratr
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-            {
-                services.AddCors(options =>
-                {
-                    options.AddPolicy("CorsDevPolicy", builder =>
-                    {
-                        builder
-                        .WithOrigins(new string[]{
-                            "http://localhost:8080", "http://localhost:8081"
-                        })
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials();
-                    });
-                });
 
-                services.AddControllers();
-                services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            }
-            private IDbConnection CreateDbConnection()
+            services.AddCors(options =>
             {
-                string connectionString = Configuration["db:gearhost"];
-                return new MysqlConnection(connectionString);
-            }
+                options.AddPolicy("CorsDevPolicy", builder =>
+                {
+                    builder
+                    .WithOrigins(new string[]{
+                            "http://localhost:8080", "http://localhost:8081"
+                    })
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials();
+                });
+            });
+
+            services.AddControllers();
+            services.AddScoped<IDbConnection>(x => CreateDbConnection());
+
+        }
+
+        private IDbConnection CreateDbConnection()
+        {
+            string connectionString = Configuration["db:gearhost"];
+            return new MySqlConnection(connectionString);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +62,7 @@ namespace customer_ratr
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseCors("CorsDevPolicy");
             }
 
             app.UseHttpsRedirection();
