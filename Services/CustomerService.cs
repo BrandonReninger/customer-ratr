@@ -12,5 +12,10 @@ namespace customer_ratr.Services
         {
             _repo = repo;
         }
+
+        internal object GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
