@@ -49,7 +49,8 @@ namespace customer_ratr
 
 
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
-            services.AddTransient<CustomerService>();
+            services.AddTransient<CustomersService>();
+            services.AddTransient<CustomersRepository>();
 
         }
 

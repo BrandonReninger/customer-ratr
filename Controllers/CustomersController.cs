@@ -10,13 +10,13 @@ using Microsoft.Extensions.Logging;
 namespace customer_ratr.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
 
-    public class CustomerController : ControllerBase
+    public class CustomersController : ControllerBase
     {
-        private readonly CustomerService _cs;
+        private readonly CustomersService _cs;
 
-        public CustomerController(CustomerService cs)
+        public CustomersController(CustomersService cs)
         {
             _cs = cs;
         }

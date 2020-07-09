@@ -5,11 +5,11 @@ using customer_ratr.Repositories;
 
 namespace customer_ratr.Services
 {
-    public class CustomerService
+    public class CustomersService
     {
-        private readonly CustomerRepository _repo;
+        private readonly CustomersRepository _repo;
 
-        public CustomerService(CustomerRepository repo)
+        public CustomersService(CustomersRepository repo)
         {
             _repo = repo;
         }

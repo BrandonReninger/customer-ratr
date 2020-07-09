@@ -6,11 +6,11 @@ using Dapper;
 
 namespace customer_ratr.Repositories
 {
-    public class CustomerRepository
+    public class CustomersRepository
     {
         private readonly IDbConnection _db;
 
-        public CustomerRepository(IDbConnection db)
+        public CustomersRepository(IDbConnection db)
         {
             _db = db;
         }
