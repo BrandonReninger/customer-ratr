@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using customer_ratr.Models;
 using customer_ratr.Repositories;
 
 namespace customer_ratr.Services
@@ -13,9 +14,9 @@ namespace customer_ratr.Services
             _repo = repo;
         }
 
-        internal object GetAll()
+        internal IEnumerable<Customer> GetAll()
         {
-            throw new NotImplementedException();
+            return _repo.GetAll();
         }
     }
 }
