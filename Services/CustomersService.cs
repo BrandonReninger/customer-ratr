@@ -18,5 +18,20 @@ namespace customer_ratr.Services
         {
             return _repo.GetAll();
         }
+
+        internal Customer Create(Customer newCustomer)
+        {
+            return _repo.Create(newCustomer);
+        }
+
+        internal Customer GetById(int id)
+        {
+            Customer foundCustomer = _repo.GetById(id);
+            if (foundCustomer == null)
+            {
+                throw new Exception("Invalid ID!");
+            }
+            return foundCustomer;
+        }
     }
 }

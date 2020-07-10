@@ -34,5 +34,31 @@ namespace customer_ratr.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Customer> GetById(int id)
+        {
+            try
+            {
+                return Ok(_cs.GetById(id));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<Customer> Create([FromBody] Customer newCustomer)
+        {
+            try
+            {
+                return Ok(_cs.Create(newCustomer));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
     }
 }
