@@ -17,7 +17,7 @@ namespace customer_ratr.Repositories
 
         internal IEnumerable<Customer> GetAll()
         {
-            string sql = "SELECT * FROM Customers";
+            string sql = "SELECT * FROM Customer";
             return _db.Query<Customer>(sql);
 
         }
