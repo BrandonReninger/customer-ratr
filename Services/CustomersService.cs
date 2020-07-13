@@ -33,5 +33,30 @@ namespace customer_ratr.Services
             }
             return foundCustomer;
         }
+
+        internal string Delete(int id)
+        {
+            Customer foundCustomer = GetById(id);
+            if (_repo.Delete(id))
+            {
+                return "Deleted!";
+            }
+            else
+            {
+                return "I dunno man, something went wrong";
+            }
+        }
+
+        internal Customer Edit(int id, Customer updateCustomer)
+        {
+            Customer foundCustomer = GetById(id);
+            foundCustomer.Name = updateCustomer.Name;
+            foundCustomer.Img = updateCustomer.Img;
+            foundCustomer.Rating = updateCustomer.Rating;
+            foundCustomer.Unhinged = updateCustomer.Unhinged;
+            foundCustomer.Description = updateCustomer.Description;
+
+            return _repo.Edit(foundCustomer);
+        }
     }
 }

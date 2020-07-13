@@ -39,5 +39,27 @@ namespace customer_ratr.Repositories
             string sql = "SELECT * FROM customer WHERE id = @Id";
             return _db.QueryFirstOrDefault<Customer>(sql, new { id });
         }
+
+        internal bool Delete(int id)
+        {
+            string sql = "DELETE from customer where id = @Id LIMIT 1";
+            int affectedRows = _db.Execute(sql, new { id });
+            return affectedRows == 1;
+        }
+
+        internal Customer Edit(Customer foundCustomer)
+        {
+            string sql = @"
+            UPDATE customer
+            SET
+            name = @Name,
+            img = @Img,
+            rating = @Rating,
+            unhinged = @Unhinged,
+            description = @Description
+            WHERE id = @Id LIMIT 1";
+            _db.Execute(sql, foundCustomer);
+            return foundCustomer;
+        }
     }
 }

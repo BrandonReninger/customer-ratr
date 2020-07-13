@@ -60,5 +60,31 @@ namespace customer_ratr.Controllers
             }
         }
 
+        [HttpDelete("{id}")]
+        public ActionResult<Customer> Delete(int id)
+        {
+            try
+            {
+                return Ok(_cs.Delete(id));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<Customer> Edit(int id, [FromBody] Customer updateCustomer)
+        {
+            try
+            {
+                return Ok(_cs.Edit(id, updateCustomer));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
     }
 }
