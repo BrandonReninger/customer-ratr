@@ -11,6 +11,12 @@
 import Customers from "../components/Customers.vue";
 export default {
   name: "Home",
+  props: ["customerData"],
+  computed: {
+    customers() {
+      return this.$store.state.customers;
+    }
+  },
   components: { Customers }
 };
 </script>

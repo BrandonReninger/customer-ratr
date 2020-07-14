@@ -3,13 +3,13 @@
     <div class="card" style="width: 18rem;">
       <img :src="customer.img" class="card-img-top" alt="customer pic" />
       <div class="card-body">
-        <h5 class="card-title">{{customer.name}}</h5>
-        <p class="card-text">{{customer.description}}</p>
+        <h5 class="card-title">{{customerData.name}}</h5>
+        <p class="card-text">{{customerData.description}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{customer.rating}}/5</li>
-        <li class="list-group-item">{{customer.likes}}</li>
-        <li class="list-group-item">{{customer.unhinged}}</li>
+        <li class="list-group-item">{{customerData.rating}}/5</li>
+        <li class="list-group-item">{{customerData.likes}}</li>
+        <li class="list-group-item">{{customerData.unhinged}}</li>
       </ul>
     </div>
   </div>
@@ -21,6 +21,9 @@ export default {
   name: "customers",
   data() {
     return {};
+  },
+  mounted() {
+    this.$store.dispatch("getCustomers");
   },
   computed: {},
   methods: {},

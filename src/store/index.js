@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
+import router from "../router"
 
 Vue.use(Vuex)
 
@@ -15,8 +16,24 @@ let api = Axios.create({
 });
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+  state: {
+    customers: []
+  },
+  mutations: {
+    setCustomers(state, customers) {
+      state.customers = customers
+    }
+  },
+  actions: {
+    async getCustomers({
+      commit
+    }) {
+      try {
+        let res = await api.get('customers')
+        commit('setCustomers', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  },
 })
