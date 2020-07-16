@@ -11,7 +11,9 @@
 import Customers from "../components/Customers.vue";
 export default {
   name: "Home",
-  props: ["customerData"],
+  mounted() {
+    this.$store.dispatch("getCustomers");
+  },
   computed: {
     customers() {
       return this.$store.state.customers;

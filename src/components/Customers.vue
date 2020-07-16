@@ -1,7 +1,7 @@
 <template>
-  <div class="customers">
+  <div class="customers col-4">
     <div class="card" style="width: 18rem;">
-      <img :src="customer.img" class="card-img-top" alt="customer pic" />
+      <img :src="customerData.img" class="card-img-top" alt="customer pic" />
       <div class="card-body">
         <h5 class="card-title">{{customerData.name}}</h5>
         <p class="card-text">{{customerData.description}}</p>
@@ -19,6 +19,7 @@
 <script>
 export default {
   name: "customers",
+  props: ["customerData"],
   data() {
     return {};
   },
