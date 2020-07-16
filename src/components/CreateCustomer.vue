@@ -1,0 +1,59 @@
+<template>
+  <div class="create-customer">
+    <div class="col-4">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          placeholder="enter name..."
+          v-model="newCustomer.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="img">Image Url:</label>
+        <input
+          type="text"
+          name="img"
+          class="form-control"
+          placeholder="paste image url..."
+          v-model="newCustomer.image"
+        />
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating:</label>
+        <input
+          type="number"
+          min="0"
+          max="5"
+          name="rating"
+          class="form-control"
+          placeholder="enter rating..."
+          v-model="newCustomer.rating"
+        />
+      </div>
+      <div class="form-group">
+        <label for="unhinged">Unhinged?</label>
+        <input type="checkbox" name="unhinged" class="form-control" v-model="newCustomer.unhinged" />
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script>
+export default {
+  name: "create-customer",
+  data() {
+    return {};
+  },
+  computed: {},
+  methods: {},
+  components: {}
+};
+</script>
+
+
+<style scoped>
+</style>
