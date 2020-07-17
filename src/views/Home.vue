@@ -2,7 +2,7 @@
   <div class="home">
     <h1>CustomerRatr</h1>
     <div class="row justify-content-center">
-      <create-customer></create-customer>>
+      <create-customer></create-customer>
     </div>
     <div class="row">
       <customers v-for="customer in customers" :key="customer.id" :customerData="customer"></customers>

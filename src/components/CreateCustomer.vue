@@ -1,7 +1,7 @@
 <template>
   <div class="create-customer">
     <!-- pop this up at click -->
-    <div class="col-4">
+    <form @submit.prevent="createCustomer()">
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -19,7 +19,7 @@
           name="img"
           class="form-control"
           placeholder="paste image url..."
-          v-model="newCustomer.image"
+          v-model="newCustomer.img"
         />
       </div>
       <div class="form-group">
@@ -50,9 +50,16 @@
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" name="description" class="form-control" v-model="newCustomer.unhinged" />
+        <input
+          type="text"
+          name="description"
+          class="form-control"
+          v-model="newCustomer.description"
+        />
       </div>
-    </div>
+
+      <button class="btn btn-primary" type="submit">SUBMIT</button>
+    </form>
   </div>
 </template>
 
@@ -66,7 +73,11 @@ export default {
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    createCustomer() {
+      this.$store.dispatch("createCustomer", this.newCustomer);
+    }
+  },
   components: {}
 };
 </script>

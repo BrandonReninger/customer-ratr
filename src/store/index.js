@@ -34,6 +34,18 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+
+    async createCustomer({
+      dispatch
+    }, newCustomer) {
+      try {
+        let res = await api.post('customers', newCustomer)
+        dispatch('getCustomers')
+      } catch (error) {
+        console.error(error)
+      }
     }
-  },
+  }
+
 })
