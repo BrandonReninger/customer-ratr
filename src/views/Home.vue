@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <h1>CustomerRatr</h1>
+    <div class="row justify-content-center">
+      <create-customer></create-customer>>
+    </div>
     <div class="row">
       <customers v-for="customer in customers" :key="customer.id" :customerData="customer"></customers>
     </div>
@@ -9,6 +12,7 @@
 
 <script>
 import Customers from "../components/Customers.vue";
+import CreateCustomer from "../components/CreateCustomer.vue";
 export default {
   name: "Home",
   mounted() {
@@ -19,6 +23,6 @@ export default {
       return this.$store.state.customers;
     }
   },
-  components: { Customers }
+  components: { Customers, CreateCustomer }
 };
 </script>

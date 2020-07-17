@@ -7,9 +7,9 @@
         <p class="card-text">{{customerData.description}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{customerData.rating}}/5</li>
-        <li class="list-group-item">{{customerData.likes}}</li>
-        <li class="list-group-item">{{customerData.unhinged}}</li>
+        <li class="list-group-item">Rating: {{customerData.rating}}/5</li>
+        <li class="list-group-item">Likes: {{customerData.likes}}</li>
+        <li class="list-group-item">Unhinged? {{customerData.unhinged}}</li>
       </ul>
     </div>
   </div>

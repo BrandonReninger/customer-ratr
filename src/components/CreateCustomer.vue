@@ -1,5 +1,6 @@
 <template>
   <div class="create-customer">
+    <!-- pop this up at click -->
     <div class="col-4">
       <div class="form-group">
         <label for="name">Name:</label>
@@ -37,6 +38,20 @@
         <label for="unhinged">Unhinged?</label>
         <input type="checkbox" name="unhinged" class="form-control" v-model="newCustomer.unhinged" />
       </div>
+      <div class="form-group">
+        <label for="likes">Friendly?</label>
+        <input
+          type="text"
+          name="likes"
+          class="form-control"
+          placeholder="Yes or No..."
+          v-model="newCustomer.likes"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" name="description" class="form-control" v-model="newCustomer.unhinged" />
+      </div>
     </div>
   </div>
 </template>
@@ -46,7 +61,9 @@
 export default {
   name: "create-customer",
   data() {
-    return {};
+    return {
+      newCustomer: {}
+    };
   },
   computed: {},
   methods: {},
