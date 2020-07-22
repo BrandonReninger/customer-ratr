@@ -40,13 +40,7 @@
       </div>
       <div class="form-group">
         <label for="likes">Friendly?</label>
-        <input
-          type="text"
-          name="likes"
-          class="form-control"
-          placeholder="Yes or No..."
-          v-model="newCustomer.likes"
-        />
+        <input type="checkbox" name="likes" class="form-control" v-model="newCustomer.likes" />
       </div>
       <div class="form-group">
         <label for="description">Description</label>
@@ -75,6 +69,8 @@ export default {
   computed: {},
   methods: {
     createCustomer() {
+      this.newCustomer.rating = +this.newCustomer.rating;
+      // this.newCustomer.likes = +this.newCustomer.likes;
       this.$store.dispatch("createCustomer", this.newCustomer);
     }
   },
