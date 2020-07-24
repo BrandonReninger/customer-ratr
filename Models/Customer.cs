@@ -10,4 +10,11 @@ namespace customer_ratr.Models
         public int Likes { get; set; }
         public string Description { get; set; }
     }
+
+    public class Comment : Customer
+    {
+        public int CommentId { get; set; }
+        public int Body { get; set; }
+    }
+
 }

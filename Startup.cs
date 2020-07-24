@@ -51,6 +51,8 @@ namespace customer_ratr
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
             services.AddTransient<CustomersService>();
             services.AddTransient<CustomersRepository>();
+            services.AddTransient<CommentsService>();
+            services.AddTransient<CommentsRepository>();
 
         }
 
