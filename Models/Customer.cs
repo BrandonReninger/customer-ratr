@@ -11,10 +11,10 @@ namespace customer_ratr.Models
         public string Description { get; set; }
     }
 
-    public class Comment : Customer
-    {
-        public int CommentId { get; set; }
-        public int Body { get; set; }
-    }
+    // public class Comment : Customer
+    // {
+    //     public int CommentId { get; set; }
+    //     public string Body { get; set; }
+    // }
 
 }

@@ -14,5 +14,11 @@ namespace customer_ratr.Repositories
         {
             _db = db;
         }
+
+        internal IEnumerable<Comment> GetAll()
+        {
+            string sql = "SELECT * FROM Comment";
+            return _db.Query<Comment>(sql);
+        }
     }
 }

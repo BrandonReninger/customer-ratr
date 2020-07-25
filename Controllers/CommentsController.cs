@@ -20,5 +20,18 @@ namespace customer_ratr.Controllers
         {
             _cos = cos;
         }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<Comment>> GetAll()
+        {
+            try
+            {
+                return Ok(_cos.Getall());
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
     }
 }

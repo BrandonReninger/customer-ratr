@@ -10,7 +10,20 @@ USE customerratr;
 --     PRIMARY KEY (id)
 -- );
 
-INSERT INTO customer 
-(name, img, rating, unhinged, description)
-VALUES
-("Karen", "https://i.kym-cdn.com/entries/icons/facebook/000/027/963/karenimg.jpg", 1 , 0 , "A very rude customer!")
+CREATE TABLE comment (
+    id int NOT NULL AUTO_INCREMENT,
+    body VARCHAR(5000) NOT NULL,
+    customerId int NOT NULL,
+
+    PRIMARY KEY(id),
+    INDEX(customerId),
+
+    FOREIGN KEY(customerId)
+        REFERENCES customer(id)
+)
+
+
+-- INSERT INTO customer 
+-- (name, img, rating, unhinged, description)
+-- VALUES
+-- ("Karen", "https://i.kym-cdn.com/entries/icons/facebook/000/027/963/karenimg.jpg", 1 , 0 , "A very rude customer!")

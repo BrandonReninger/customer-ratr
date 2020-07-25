@@ -13,5 +13,10 @@ namespace customer_ratr.Services
         {
             _repo = repo;
         }
+
+        internal IEnumerable<Comment> Getall()
+        {
+            return _repo.GetAll();
+        }
     }
 }
