@@ -33,5 +33,18 @@ namespace customer_ratr.Controllers
                 return BadRequest(err.Message);
             }
         }
+
+        [HttpPost]
+        public ActionResult<Comment> Create([FromBody] Comment newComment)
+        {
+            try
+            {
+                return Ok(_cos.Create(newComment));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
     }
 }

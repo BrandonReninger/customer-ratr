@@ -18,5 +18,10 @@ namespace customer_ratr.Services
         {
             return _repo.GetAll();
         }
+
+        internal Comment Create(Comment newComment)
+        {
+            return _repo.Create(newComment);
+        }
     }
 }

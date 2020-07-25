@@ -20,5 +20,17 @@ namespace customer_ratr.Repositories
             string sql = "SELECT * FROM Comment";
             return _db.Query<Comment>(sql);
         }
+
+        internal Comment Create(Comment newComment)
+        {
+            string sql = @"
+                INSERT INTO comment
+                (body)
+                VALUES
+                (@Body)
+                SELECT LAST_INSERT_ID()";
+            newComment.Id = _db.ExecuteScalar<int>(sql, newComment);
+            return newComment;
+        }
     }
 }
