@@ -15,13 +15,13 @@ namespace customer_ratr.Repositories
             _db = db;
         }
 
-        ANCHOR // Get comments off of customer get request dammit!
-        // internal IEnumerable<Customer> GetAll()
-        // {
-        //     string sql = "SELECT * FROM Customer";
-        //     return _db.Query<Customer>(sql);
+        // ANCHOR // Get comments off of customer get request dammit!
+        internal IEnumerable<Customer> GetAll()
+        {
+            string sql = "SELECT * FROM Customer";
+            return _db.Query<Customer>(sql);
 
-        // }
+        }
 
         internal Customer Create(Customer newCustomer)
         {

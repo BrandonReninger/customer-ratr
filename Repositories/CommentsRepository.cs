@@ -32,5 +32,11 @@ namespace customer_ratr.Repositories
             newComment.Id = _db.ExecuteScalar<int>(sql, newComment);
             return newComment;
         }
+
+        ANCHOR // Start backup here, might need viewmodel
+        internal IEnumerable<Comment> GetCommentsByCustomerId(int customerId)
+        {
+            string sql = ""
+        }
     }
 }

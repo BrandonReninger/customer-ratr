@@ -15,10 +15,12 @@ namespace customer_ratr.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly CustomersService _cs;
+        private readonly CommentsService _cos;
 
-        public CustomersController(CustomersService cs)
+        public CustomersController(CustomersService cs, CommentsService cos)
         {
             _cs = cs;
+            _cos = cos;
         }
 
         [HttpGet]
@@ -40,6 +42,19 @@ namespace customer_ratr.Controllers
             try
             {
                 return Ok(_cs.GetById(id));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [HttpGet("{id}/comments")]
+        public ActionResult<IEnumerable<Comment>> GetCommentsByCustomerId(int id)
+        {
+            try
+            {
+                return Ok(_cos.GetCommentsByCustomerId(id));
             }
             catch (System.Exception err)
             {
