@@ -19,10 +19,10 @@ namespace customer_ratr.Services
             return _repo.GetAll();
         }
 
-        internal IEnumerable<Comment> GetCommentsByCustomerId(int customerId)
-        {
-            return _repo.GetCommentsByCustomerId(customerId);
-        }
+        // internal IEnumerable<Comment> GetCommentsByCustomerId(int customerId)
+        // {
+        //     return _repo.GetCommentsByCustomerId(customerId);
+        // }
 
         internal Comment Create(Comment newComment)
         {

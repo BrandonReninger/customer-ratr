@@ -53,6 +53,8 @@ namespace customer_ratr
             services.AddTransient<CustomersRepository>();
             services.AddTransient<CommentsService>();
             services.AddTransient<CommentsRepository>();
+            services.AddTransient<UsersService>();
+            services.AddTransient<UsersRepository>();
 
         }
 

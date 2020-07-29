@@ -33,10 +33,9 @@ namespace customer_ratr.Repositories
             return newComment;
         }
 
-        ANCHOR // Start backup here, might need viewmodel
-        internal IEnumerable<Comment> GetCommentsByCustomerId(int customerId)
-        {
-            string sql = ""
-        }
+        // internal IEnumerable<Comment> GetCommentsByCustomerId(int customerId)
+        // {
+        //     string sql = ""
+        // }
     }
 }

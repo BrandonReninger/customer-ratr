@@ -49,18 +49,18 @@ namespace customer_ratr.Controllers
             }
         }
 
-        [HttpGet("{id}/comments")]
-        public ActionResult<IEnumerable<Comment>> GetCommentsByCustomerId(int id)
-        {
-            try
-            {
-                return Ok(_cos.GetCommentsByCustomerId(id));
-            }
-            catch (System.Exception err)
-            {
-                return BadRequest(err.Message);
-            }
-        }
+        // [HttpGet("{id}/comments")]
+        // public ActionResult<IEnumerable<Comment>> GetCommentsByCustomerId(int id)
+        // {
+        //     try
+        //     {
+        //         return Ok(_cos.GetCommentsByCustomerId(id));
+        //     }
+        //     catch (System.Exception err)
+        //     {
+        //         return BadRequest(err.Message);
+        //     }
+        // }
 
         [HttpPost]
         public ActionResult<Customer> Create([FromBody] Customer newCustomer)
