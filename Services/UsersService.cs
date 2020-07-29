@@ -28,5 +28,27 @@ namespace customer_ratr.Services
         {
             return _repo.Create(newUser);
         }
+
+        internal string Delete(int id)
+        {
+            User foundUser = _repo.GetById(id);
+            if (_repo.Delete(id))
+            {
+                return "Bye Bye!";
+            }
+            else
+            {
+                return "Something went wrong bro.";
+            }
+        }
+
+        internal User Edit(int id, User updateUser)
+        {
+            User foundUser = GetById(id);
+            foundUser.Name = updateUser.Name;
+            foundUser.Image = updateUser.Image;
+
+            return _repo.Edit(foundUser);
+        }
     }
 }

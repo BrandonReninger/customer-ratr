@@ -32,5 +32,24 @@ namespace customer_ratr.Repositories
             newUser.Id = _db.ExecuteScalar<int>(sql, newUser);
             return newUser;
         }
+
+        internal bool Delete(int id)
+        {
+            string sql = "DELETE FROM user WHERE id = @Id LIMIT 1";
+            int affectedRows = _db.Execute(sql, new { id });
+            return affectedRows == 1;
+        }
+
+        internal User Edit(User foundUser)
+        {
+            string sql = @"
+            UPDATE user 
+            SET
+            name = @Name,
+            image = @Image
+            WHERE id = @Id LIMIT 1";
+            _db.Execute(sql, foundUser);
+            return foundUser;
+        }
     }
 }
