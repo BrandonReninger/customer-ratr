@@ -13,5 +13,20 @@ namespace customer_ratr.Services
         {
             _repo = repo;
         }
+
+        internal User GetById(int id)
+        {
+            User foundUser = _repo.GetById(id);
+            if (foundUser == null)
+            {
+                throw new Exception("I dunno what happened man");
+            }
+            return foundUser;
+        }
+
+        internal User Create(User newUser)
+        {
+            return _repo.Create(newUser);
+        }
     }
 }

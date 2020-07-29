@@ -14,5 +14,23 @@ namespace customer_ratr.Repositories
         {
             _db = db;
         }
+
+        internal User GetById(int id)
+        {
+            string sql = "SELECT * FROM user WHERE id = @Id";
+            return _db.QueryFirstOrDefault<User>(sql, new { id });
+        }
+
+        internal User Create(User newUser)
+        {
+            string sql = @"
+            INSERT INTO user
+            (name, image)
+            VALUES
+            (@Name, @Image);
+            SELECT LAST_INSERT_ID()";
+            newUser.Id = _db.ExecuteScalar<int>(sql, newUser);
+            return newUser;
+        }
     }
 }

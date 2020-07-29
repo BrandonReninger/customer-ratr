@@ -10,18 +10,24 @@ USE customerratr;
 --     PRIMARY KEY (id)
 -- );
 
-CREATE TABLE comment (
+-- CREATE TABLE comment (
+--     id int NOT NULL AUTO_INCREMENT,
+--     body VARCHAR(5000) NOT NULL,
+--     customerId int NOT NULL,
+
+--     PRIMARY KEY(id),
+--     INDEX(customerId),
+
+--     FOREIGN KEY(customerId)
+--         REFERENCES customer(id)
+-- )
+
+CREATE TABLE user (
     id int NOT NULL AUTO_INCREMENT,
-    body VARCHAR(5000) NOT NULL,
-    customerId int NOT NULL,
-
-    PRIMARY KEY(id),
-    INDEX(customerId),
-
-    FOREIGN KEY(customerId)
-        REFERENCES customer(id)
-)
-
+    name VARCHAR(40) NOT NULL,
+    image VARCHAR(1000) NOT NULL,
+    PRIMARY KEY(id)
+);
 
 -- INSERT INTO customer 
 -- (name, img, rating, unhinged, description)
