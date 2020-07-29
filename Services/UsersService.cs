@@ -46,6 +46,7 @@ namespace customer_ratr.Services
         {
             User foundUser = GetById(id);
             foundUser.Name = updateUser.Name;
+            foundUser.Password = updateUser.Password;
             foundUser.Image = updateUser.Image;
 
             return _repo.Edit(foundUser);

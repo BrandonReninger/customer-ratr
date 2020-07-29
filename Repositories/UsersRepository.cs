@@ -25,9 +25,9 @@ namespace customer_ratr.Repositories
         {
             string sql = @"
             INSERT INTO user
-            (name, image)
+            (name, password, image,)
             VALUES
-            (@Name, @Image);
+            (@Name, @Password, @Image);
             SELECT LAST_INSERT_ID()";
             newUser.Id = _db.ExecuteScalar<int>(sql, newUser);
             return newUser;
@@ -46,6 +46,7 @@ namespace customer_ratr.Repositories
             UPDATE user 
             SET
             name = @Name,
+            password = @Password,
             image = @Image
             WHERE id = @Id LIMIT 1";
             _db.Execute(sql, foundUser);
