@@ -17,11 +17,16 @@ let api = Axios.create({
 
 export default new Vuex.Store({
   state: {
-    customers: []
+    customers: [],
+    users: [],
+    activeUser: {}
   },
   mutations: {
     setCustomers(state, customers) {
       state.customers = customers
+    },
+    setActiveUser(state, activeUser) {
+      state.activeUser = activeUser
     }
   },
   actions: {
@@ -45,7 +50,19 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+
+    async getUser({
+      commit
+    }, id) {
+      try {
+        let res = await api.get('users' + id)
+        commit('setUser', res.data)
+      } catch (error) {
+        console.error(error)
+      }
     }
+
   }
 
 })

@@ -1,13 +1,15 @@
 <template>
   <div class="home">
     <h1>CustomerRatr</h1>
-    <h3>New to judging people? Click below to sign up!</h3>
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-toggle="modal"
-      data-target="#joinModal"
-    >JOIN NOW!</button>
+    <div>
+      <h3>New to judging people? Click below to sign up!</h3>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#joinModal"
+      >JOIN NOW!</button>
+    </div>
 
     <div
       class="modal fade"
@@ -33,6 +35,7 @@
                 name="userName"
                 class="form-control"
                 placeholder="enter username..."
+                v-model="newUser.name"
               />
             </div>
             <div class="form-group">
@@ -42,11 +45,18 @@
                 name="password"
                 class="form-control"
                 placeholder="enter a good password..."
+                v-model="newUser.password"
               />
             </div>
             <div class="form-group">
               <label for="image">Image Url:</label>
-              <input type="text" name="image" class="form-control" placeholder="paste image url..." />
+              <input
+                type="text"
+                name="image"
+                class="form-control"
+                placeholder="paste image url..."
+                v-model="newUser.image"
+              />
             </div>
           </div>
           <div class="modal-footer">
@@ -71,6 +81,11 @@ import Customers from "../components/Customers.vue";
 import CreateCustomer from "../components/CreateCustomer.vue";
 export default {
   name: "Home",
+  data() {
+    return {
+      newUser: {}
+    };
+  },
   mounted() {
     this.$store.dispatch("getCustomers");
   },
