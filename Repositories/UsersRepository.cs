@@ -25,7 +25,7 @@ namespace customer_ratr.Repositories
         {
             string sql = @"
             INSERT INTO user
-            (name, password, image,)
+            (name, password, image)
             VALUES
             (@Name, @Password, @Image);
             SELECT LAST_INSERT_ID()";

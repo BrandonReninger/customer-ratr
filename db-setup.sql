@@ -30,6 +30,8 @@ CREATE TABLE user (
     PRIMARY KEY(id)
 );
 
+-- DROP TABLE user
+
 -- INSERT INTO customer 
 -- (name, img, rating, unhinged, description)
 -- VALUES
