@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // @ts-ignore
 import Home from '../views/Home.vue'
+// @ts-ignore
+import Profile from '../views/Profile.vue'
 
 Vue.use(VueRouter)
 
@@ -10,6 +12,11 @@ const routes = [{
     name: 'Home',
     component: Home
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
+  }
 
 
   // route level code-splitting
