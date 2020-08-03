@@ -28,40 +28,42 @@
             </button>
           </div>
           <div class="modal-body">
-            <div class="form-group">
-              <label for="userName">Username:</label>
-              <input
-                type="text"
-                name="userName"
-                class="form-control"
-                placeholder="enter username..."
-                v-model="newUser.name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input
-                type="text"
-                name="password"
-                class="form-control"
-                placeholder="enter a good password..."
-                v-model="newUser.password"
-              />
-            </div>
-            <div class="form-group">
-              <label for="image">Image Url:</label>
-              <input
-                type="text"
-                name="image"
-                class="form-control"
-                placeholder="paste image url..."
-                v-model="newUser.image"
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <form @submit="createUser()">
+              <div class="form-group">
+                <label for="userName">Username:</label>
+                <input
+                  type="text"
+                  name="userName"
+                  class="form-control"
+                  placeholder="enter username..."
+                  v-model="newUser.name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input
+                  type="password"
+                  name="password"
+                  class="form-control"
+                  placeholder="enter a good password..."
+                  v-model="newUser.password"
+                />
+              </div>
+              <div class="form-group">
+                <label for="image">Image Url:</label>
+                <input
+                  type="text"
+                  name="image"
+                  class="form-control"
+                  placeholder="paste image url..."
+                  v-model="newUser.image"
+                />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -92,6 +94,12 @@ export default {
   computed: {
     customers() {
       return this.$store.state.customers;
+    }
+  },
+  methods: {
+    createUser() {
+      return this.$store.dispatch("createUser", this.newUser);
+      this.newUser = {};
     }
   },
   components: { Customers, CreateCustomer }

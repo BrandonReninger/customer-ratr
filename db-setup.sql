@@ -25,6 +25,7 @@ USE customerratr;
 CREATE TABLE user (
     id int NOT NULL AUTO_INCREMENT,
     name VARCHAR(40) NOT NULL,
+    password VARCHAR(40) NOT NULL,
     image VARCHAR(1000) NOT NULL,
     PRIMARY KEY(id)
 );

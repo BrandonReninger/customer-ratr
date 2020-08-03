@@ -41,6 +41,17 @@ export default new Vuex.Store({
       }
     },
 
+    async getUser({
+      commit
+    }, id) {
+      try {
+        let res = await api.get('users' + id)
+        commit('setUser', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
     async createCustomer({
       dispatch
     }, newCustomer) {
@@ -52,12 +63,13 @@ export default new Vuex.Store({
       }
     },
 
-    async getUser({
-      commit
-    }, id) {
+    async createUser({
+      dispatch
+    }, newUser) {
       try {
-        let res = await api.get('users' + id)
-        commit('setUser', res.data)
+        debugger
+        let res = await api.post('users', newUser)
+        dispatch('getUser')
       } catch (error) {
         console.error(error)
       }
