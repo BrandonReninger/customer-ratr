@@ -100,6 +100,7 @@ export default {
     createUser() {
       return this.$store.dispatch("createUser", this.newUser);
       this.newUser = {};
+      this.$router.push({ name: "Profile", params: { userId: this.user.id } });
     }
   },
   components: { Customers, CreateCustomer }

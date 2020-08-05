@@ -66,7 +66,6 @@ export default new Vuex.Store({
       dispatch
     }, newUser) {
       try {
-        debugger
         let res = await api.post('users', newUser)
         dispatch('getUser')
       } catch (error) {
